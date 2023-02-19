@@ -1,0 +1,127 @@
+<!--
+=========================================================
+* Soft UI Dashboard - v1.0.6
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+  <title>
+    Litex | Elite exchange
+  </title>
+  
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{% static 'css/soft-ui-dashboard.css' %}" rel="stylesheet" />
+  <link id="pagestyle_dark" href="{% static 'css/dark-theme-core.css' %}" rel="stylesheet" />
+
+</head>
+<body class="g-sidenav-show  bg-gray-100 virtual-reality">
+
+  <div> 
+    {% include "includes/navigation.html" %}
+  </div>  
+  
+  <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('{% static 'img/vr-bg.jpg' %}') ; background-size: cover;">
+
+    {% include "includes/sidebar.html" %}
+
+    <main class="main-content mt-1 border-radius-lg">
+
+      <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
+      
+        
+            
+            <!-- DASHBOARD -->
+            <div>
+  
+  
+
+                <form class="form-signin" method="post" action="{% url 'dashboard:wallet' %}">
+              
+                  <h2 class="form-signin-heading text-center">Set Pin</h2>
+                  {% if messages %}
+                      {% for message in messages %}
+                          <p class='text-danger text-center'>{{message|safe}} </p>
+                      {% endfor %}       
+                  {% endif %}
+                  <label for="inputEmail" class="sr-only">Set Transaction Pin</label>
+                  {{ form.transactionPin }}
+                  {% csrf_token %}
+                  
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Set Pin</button>
+              </form>
+              
+              </div>
+
+
+
+
+
+      </div>
+    
+    </main>
+    
+  </div>
+
+  {% include "includes/footer.html" %}
+
+  <!-- APP Configurator -->
+  {% include "includes/fixed-plugin.html" %} 
+
+  <!-- Core JS Files -->
+  {% include "includes/scripts.html" %}
+
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+
+    function copyText() {
+                    /* Get the text field */
+                    var account = document.getElementById("account-number");
+        
+                    
+                    /* Select the text field 
+                    account.select();
+                    account.setSelectionRange(0, 99999); /* For mobile devices */
+        
+                    /* Copy the text inside the text field */
+                    navigator.clipboard.writeText(account.innerText);
+                }
+  </script>
+
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'js/soft-ui-dashboard.min.js' %}"></script>
+
+</body>
+</html>

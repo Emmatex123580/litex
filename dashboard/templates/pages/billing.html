@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+  
+  
+
+  <form class="form-signin" method="post" action="{% url 'dashboard:wallet' %}">
+
+    <h2 class="form-signin-heading text-center">Verify Account</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p class='text-danger text-center'>{{message|safe}} </p>
+        {% endfor %}       
+    {% endif %}
+    <label for="inputEmail" class="sr-only">BVN</label>
+    {{ form.bvn }}
+    {% csrf_token %}
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Verify</button>
+</form>
+
+</div>
+{% endblock content %}
