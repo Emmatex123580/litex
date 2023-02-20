@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'phone_field',
     'cryptography',
     "dashboard.apps.DashboardConfig",
-    'django-notifications-hq',
+    
 ]
 
 MIDDLEWARE = [
