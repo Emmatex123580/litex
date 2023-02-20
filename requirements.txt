@@ -3,6 +3,7 @@ gunicorn
 python-dotenv
 whitenoise
 django-notifications-hq
-
+cryptography
+phone_field
 # psycopg2-binary
 # mysqlclient
