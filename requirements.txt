@@ -2,7 +2,7 @@ django
 gunicorn
 python-dotenv
 whitenoise
-django-notifications-hq
+#django-notifications-hq
 cryptography
 django-phone-field
 # psycopg2-binary
