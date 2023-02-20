@@ -4,6 +4,6 @@ python-dotenv
 whitenoise
 django-notifications-hq
 cryptography
-phone_field
+phone-field
 # psycopg2-binary
 # mysqlclient
